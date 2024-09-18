@@ -1,0 +1,36 @@
+.field_container {
+	@apply flex flex-col items-start;
+}
+
+.field_wrapper {
+	@apply relative w-full;
+}
+
+.wrapper {
+	@apply relative flex items-center;
+}
+.icon {
+	@apply absolute left-0 pointer-events-none pl-2;
+}
+
+.input {
+	@apply w-full h-[40px]  border-0 border-b border-b-[#ccc] bg-transparent text-gray-700 placeholder:left-0 placeholder:text-gray-700;
+}
+
+.focus_border {
+	@apply absolute bottom-0 left-0 w-0 h-[1.6px];
+	transition: width 0.4s;
+}
+
+:focus {
+	outline: none;
+}
+
+.effect_1:hover ~ .focus_border,
+.effect_1:focus ~ .focus_border {
+	width: 100%;
+}
+
+.error_message {
+	@apply mt-3 text-xs;
+}
