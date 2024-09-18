@@ -1,0 +1,30 @@
+.field_container {
+	@apply h-12 w-full relative flex rounded-xl;
+}
+.input {
+	@apply w-full text-sm bg-transparent outline-none px-4 rounded-xl bg-white border border-[#4070f4] focus:shadow-md;
+}
+
+.label {
+	@apply absolute top-1/2 left-4 px-2 font-light text-base bg-white transition-all duration-150 ease-in-out;
+	transform: translateY(-50%);
+}
+
+.focused {
+	top: 0;
+	left: 3px;
+	font-size: 0.75rem;
+	color: #4070f4;
+}
+
+.label_error {
+	@apply text-red-500 peer-focus:text-red-500;
+}
+
+.error_message {
+	@apply mt-3 text-xs;
+}
+
+.required {
+	@apply border border-red-500 transition-all duration-500 ease-in-out;
+}
