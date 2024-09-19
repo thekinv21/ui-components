@@ -1,12 +1,12 @@
 .field_container {
-	@apply h-12 w-full relative flex rounded-xl;
+	@apply relative flex w-full rounded-xl;
 }
 .input {
-	@apply w-full text-sm bg-transparent outline-none px-4 rounded-xl bg-white border border-[#4070f4] focus:shadow-md;
+	@apply w-full rounded-xl border border-[#4070f4] bg-transparent bg-white px-4 py-3 text-sm outline-none focus:shadow-md;
 }
 
 .label {
-	@apply absolute top-1/2 left-4 px-2 font-light text-base bg-white transition-all duration-150 ease-in-out;
+	@apply absolute left-4 top-1/2 bg-white px-2 text-base font-light transition-all duration-150 ease-in-out;
 	transform: translateY(-50%);
 }
 

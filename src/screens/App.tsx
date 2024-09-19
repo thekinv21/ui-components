@@ -1,19 +1,22 @@
-import { Button } from '@/components/ui/button/button'
-import { TextArea } from '@/components/ui/textarea/example-1/TextArea'
-import { TextArea2 } from '@/components/ui/textarea/example-2/TextArea2'
-import { TextArea4 } from '@/components/ui/textarea/example-4/TextArea4'
-
 import { SubmitHandler, useForm } from 'react-hook-form'
 
+import { Button } from '@/components/ui/button/button'
+import { RangeDate } from '@/components/ui/datePicker/range/RangeDate'
+import { SingleDate } from '@/components/ui/datePicker/single/SingleDate'
+import { Field4 } from '@/components/ui/field/example-4/Field4'
+import { TextArea4 } from '@/components/ui/textarea/example-4/TextArea4'
+
 interface IForm {
-	note1: string
-	note2: string
-	note3: string
+	singleDate: Date
+	rangeDate: Date
+	test: string
+	test1: string
+	test2: string
 }
 
 export function App() {
 	const formMethod = useForm<IForm>({
-		mode: 'onChange',
+		mode: 'onChange'
 	})
 
 	const onSubmit: SubmitHandler<IForm> = data => {
@@ -21,41 +24,41 @@ export function App() {
 	}
 
 	return (
-		<section className='h-screen flex items-center justify-center'>
+		<section className='flex h-screen items-center justify-center'>
 			<form
 				onSubmit={formMethod.handleSubmit(onSubmit)}
-				className='flex gap-5 flex-wrap flex-col'
+				className='flex flex-col flex-wrap gap-5'
 			>
-				<h1 className='text-2xl font-bold mb-10'>
-					Custom UI TextArea with React Hook Form
+				<h1 className='mb-10 text-2xl font-bold'>
+					Custom UI DatePicker with React Hook Form
 				</h1>
 
-				<div className='flex gap-5 flex-col'>
-					<span>1. Type TextArea Input</span>
-					<TextArea
-						placeholder='Note 1'
-						name='note1'
+				<div className='flex w-full flex-col gap-5'>
+					<span>Single DatePicker</span>
+					<SingleDate name='singleDate' control={formMethod.control} required />
+				</div>
+
+				<div className='flex w-full flex-col gap-5'>
+					<span>Range DatePicker</span>
+					<RangeDate name='rangeDate' control={formMethod.control} required />
+				</div>
+
+				<div className='flex w-full flex-col gap-5'>
+					<span>Field</span>
+					<Field4
+						name='test'
 						control={formMethod.control}
 						required
+						label='Field'
 					/>
 				</div>
 
-				<div className='flex gap-5 flex-col'>
-					<span>2. Type TextArea Input</span>
-					<TextArea2
-						placeholder='Note 2'
-						name='note2'
-						control={formMethod.control}
-						required
-					/>
-				</div>
-
-				<div className='flex gap-5 flex-col'>
-					<span>3. Type TextArea Input</span>
+				<div className='flex w-full flex-col gap-5'>
+					<span>TextARea</span>
 					<TextArea4
-						name='note3'
+						label='Field'
+						name='test1'
 						control={formMethod.control}
-						label='Note 3'
 						required
 					/>
 				</div>
