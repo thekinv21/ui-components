@@ -1,5 +1,7 @@
-import { cn } from '@/utils/shadcn'
 import { Controller } from 'react-hook-form'
+
+import { cn } from '@/utils/shadcn'
+
 import { IField2 } from './Field2.d'
 import styles from './Field2.module.scss'
 
@@ -11,7 +13,7 @@ export function Field2(props: IField2) {
 			rules={{ required: props.required }}
 			render={({
 				field: { onChange, onBlur, value, ref },
-				fieldState: { error },
+				fieldState: { error }
 			}) => (
 				<div>
 					<div className={styles.group}>
@@ -22,7 +24,7 @@ export function Field2(props: IField2) {
 							name={props.name}
 							className={cn(
 								styles.input,
-								props.icon ? 'pl-[3rem]' : 'pl-[1rem]',
+								props.icon ? 'pl-[3rem]' : 'pl-[1.5rem]',
 								{ [styles.required]: error }
 							)}
 							type={props.type ?? 'text'}

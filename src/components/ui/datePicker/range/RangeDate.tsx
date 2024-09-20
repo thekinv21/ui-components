@@ -5,11 +5,18 @@ import { cn } from '@/utils/shadcn'
 
 import { IDatePicker } from '../Date'
 import styles from '../Date.module.scss'
+import '../DatePicker.css'
 
-// TODO: // don't forget import this styles from dist
 import 'react-datepicker/dist/react-datepicker.css'
 
-// TODO: // import my custom react-datepicker styles from assets/css file for your global css file
+/*
+
+	
+ 1) import my custom react-datepicker styles from ../DatePicker.css
+
+ 2) Don't forget import this styles from dist
+ 
+*/
 
 export function RangeDate(props: IDatePicker) {
 	return (

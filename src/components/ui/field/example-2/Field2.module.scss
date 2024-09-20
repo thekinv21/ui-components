@@ -1,13 +1,13 @@
 .group {
-	@apply flex relative items-center w-full leading-7;
+	@apply relative flex w-full items-center leading-7;
 }
 
 .input {
-	@apply w-full h-[45px] leading-[30px] pr-[5rem] border-2 border-transparent rounded-lg bg-[#f8fafc] text-[#0d0c22] transition-all duration-500 ease-in-out focus:border-indigo-400 focus:bg-white hover:border-indigo-400 outline-none;
+	@apply h-[40px] w-full rounded-lg border pr-[5rem] text-sm leading-[30px] text-[#0d0c22] outline-none transition-all duration-500 ease-in-out hover:border-indigo-400 focus:border-indigo-400 focus:bg-white;
 }
 
 .icon {
-	@apply absolute left-4 w-4 h-4 fill-none;
+	@apply absolute left-4 h-4 w-4 fill-none;
 }
 
 .error_message {

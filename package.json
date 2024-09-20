@@ -18,6 +18,7 @@
 		"react-datepicker": "^7.3.0",
 		"react-dom": "^18.3.1",
 		"react-hook-form": "^7.53.0",
+		"react-select": "^5.8.1",
 		"sass": "^1.79.1",
 		"tailwind-merge": "^2.5.2",
 		"tailwindcss-animate": "^1.0.7"
