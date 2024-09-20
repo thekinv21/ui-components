@@ -92,9 +92,9 @@
 		cursor: pointer !important;
 		font-size: 14px !important;
 
-		&--is-focused {
-			background-color: lighten(#1111, 1%) !important;
-		}
+		// &--is-focused {
+		// 	background-color: lighten(#1111, 1%) !important;
+		// }
 	}
 }
 
@@ -108,7 +108,7 @@
 		color: #888ea8 !important;
 
 		&--menu-is-open {
-			// border-color: #4361ee !important;
+			border-color: #4361ee !important;
 			transition: all 0.4s ease-in !important;
 		}
 	}
@@ -176,8 +176,8 @@
 	&__option {
 		cursor: pointer !important;
 
-		&--is-focused {
-			background-color: lighten(#1111, 1%) !important;
-		}
+		// &--is-focused {
+		// 	background-color: lighten(#1111, 1%) !important;
+		// }
 	}
 }
