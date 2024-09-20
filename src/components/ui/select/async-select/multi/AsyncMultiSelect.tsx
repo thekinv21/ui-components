@@ -46,7 +46,11 @@ export function AsyncMultiSelect(props: IAsyncSelectProps) {
 								onBlur={onBlur}
 								components={animatedComponent}
 								classNamePrefix={'custom_select'}
-								className={props.className}
+								className={cn(
+									props.className,
+									error &&
+										'rounded-lg border border-red-500 hover:border-none focus:border-none'
+								)}
 								loadOptions={props.loadOptions}
 								isMulti
 								isDisabled={props.isDisabled}

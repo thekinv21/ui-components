@@ -3,13 +3,20 @@ import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
 import { Button } from '@/components/ui/button/button'
+import { SingleDate } from '@/components/ui/datePicker/single/SingleDate'
+import { Field2 } from '@/components/ui/field/example-2/Field2'
 import { AsyncMultiSelect } from '@/components/ui/select/async-select/multi/AsyncMultiSelect'
 import { AsyncSingleSelect } from '@/components/ui/select/async-select/single/AsyncSingleSelect'
+import { TextArea2 } from '@/components/ui/textarea/example-2/TextArea2'
 
 interface IForm {
 	stringOption: string | null
 	numberOption: number | null
 	booleanOption: boolean | null
+	singleDate: Date
+	rangeDate: Date
+	field: string
+	textarea: string
 }
 
 export function App() {
@@ -120,6 +127,31 @@ export function App() {
 						loadOptions={fetchPosts}
 						isLoading={isLoadingPosts}
 						isDisabled={isLoadingPosts}
+					/>
+				</div>
+
+				<div className='flex w-full flex-col gap-5'>
+					<span> Single DatePicker</span>
+					<SingleDate name='singleDate' control={formMethod.control} required />
+				</div>
+
+				<div className='flex w-full flex-col gap-5'>
+					<span>Field</span>
+					<Field2
+						name='field'
+						placeholder='Field Giriniz'
+						control={formMethod.control}
+						required
+					/>
+				</div>
+
+				<div className='flex w-full flex-col gap-5'>
+					<span> TextArea</span>
+					<TextArea2
+						placeholder='Note Giriniz'
+						name='textarea'
+						control={formMethod.control}
+						required
 					/>
 				</div>
 

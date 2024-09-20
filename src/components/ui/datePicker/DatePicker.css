@@ -13,7 +13,7 @@
 .react-datepicker__calendar-icon {
 	position: absolute !important;
 	right: 10px !important;
-	top: 7px !important;
+	top: 4px !important;
 	font-weight: 100 !important;
 }
 
@@ -67,7 +67,7 @@ svg {
 
 .react-datepicker__day--selected,
 .react-datepicker__day--in-range {
-	background-color: red !important;
+	background-color: #4361ee !important;
 	border-radius: 50% !important;
 }
 
@@ -98,7 +98,7 @@ svg {
 }
 
 .react-datepicker__day:hover {
-	background-color: red !important;
+	background-color: #4361ee !important;
 	color: aliceblue !important;
 }
 
@@ -112,6 +112,6 @@ svg {
 		.react-datepicker__quarter-text--in-range,
 		.react-datepicker__year-text--in-range
 	) {
-	background-color: red !important;
+	background-color: #4361ee !important;
 	transition: all ease 0.5s !important;
 }

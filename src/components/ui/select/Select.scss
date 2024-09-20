@@ -25,11 +25,16 @@
 		&--menu-is-open {
 			border-color: #4361ee !important;
 		}
+
+		&:hover {
+			border-color: #4361ee !important;
+		}
 	}
 
 	&__value-container {
 		cursor: text !important;
 		text-align: start !important;
+		padding-left: 20px !important;
 	}
 
 	&__input-container {

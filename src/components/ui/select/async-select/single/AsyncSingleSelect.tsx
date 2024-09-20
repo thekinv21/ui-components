@@ -28,13 +28,17 @@ export function AsyncSingleSelect(props: IAsyncSelectProps) {
 								cacheOptions
 								ref={ref}
 								name={props.name}
-								placeholder={props.placeholder ?? 'Select...'}
+								placeholder={props.placeholder ?? 'Seçiniz...'}
 								value={value}
 								onChange={(selected: ISelectOption) => onChange(selected)}
 								onBlur={onBlur}
 								components={animatedComponent}
-								classNamePrefix={'custom_select'}
-								className={props.className}
+								classNamePrefix={`custom_select`}
+								className={cn(
+									props.className,
+									error &&
+										'rounded-lg border border-red-500 hover:border-none focus:border-none'
+								)}
 								loadOptions={props.loadOptions}
 								isDisabled={props.isDisabled}
 								isLoading={props.isLoading}
