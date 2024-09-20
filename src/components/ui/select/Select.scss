@@ -85,6 +85,7 @@
 
 	&__option {
 		cursor: pointer !important;
+		font-size: 14px !important;
 
 		&--is-focused {
 			background-color: lighten(#1111, 1%) !important;

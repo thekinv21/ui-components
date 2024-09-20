@@ -1,8 +1,10 @@
+import { useState } from 'react'
+
 import { SubmitHandler, useForm } from 'react-hook-form'
 
 import { Button } from '@/components/ui/button/button'
-import { MultiSelect } from '@/components/ui/select/react-select/multi/MultiSelect'
-import { SingleSelect } from '@/components/ui/select/react-select/single/SingleSelect'
+import { AsyncMultiSelect } from '@/components/ui/select/async-select/multi/AsyncMultiSelect'
+import { AsyncSingleSelect } from '@/components/ui/select/async-select/single/AsyncSingleSelect'
 
 interface IForm {
 	stringOption: string | null
@@ -11,24 +13,69 @@ interface IForm {
 }
 
 export function App() {
+	const [isLoadingPosts, setIsLoadingPosts] = useState<boolean>(false)
+	const [isLoadingUsers, setIsLoadingUsers] = useState<boolean>(false)
+
 	const formMethod = useForm<IForm>({
 		mode: 'onChange'
 	})
 
-	const stringOptions = [
-		{ value: 'string1', label: 'String1' },
-		{ value: 'string2', label: 'String2' }
-	]
+	async function fetchUsers() {
+		try {
+			setIsLoadingUsers(true)
 
-	const numberOptions = [
-		{ value: 1, label: 'Number1' },
-		{ value: 2, label: 'Number2' }
-	]
+			const response = await fetch(
+				`https://jsonplaceholder.typicode.com/users`,
+				{
+					method: 'GET'
+				}
+			)
 
-	const booleanOptions = [
-		{ value: 'true', label: 'True' },
-		{ value: 'false', label: 'False' }
-	]
+			if (response.ok) {
+				setIsLoadingUsers(false)
+
+				const data = await response.json()
+
+				const options = data.map((item: any) => ({
+					label: item.name,
+					value: item.id
+				}))
+
+				return options
+			}
+		} catch (error) {
+			setIsLoadingUsers(false)
+
+			console.error('Error fetching options', error)
+			return []
+		}
+	}
+
+	async function fetchPosts() {
+		try {
+			setIsLoadingPosts(true)
+
+			const response = await fetch(`https://jsonplaceholder.typicode.com/posts`)
+
+			if (response.ok) {
+				setIsLoadingPosts(false)
+
+				const data = await response.json()
+
+				const options = data.map((item: any) => ({
+					label: item.title,
+					value: item.id
+				}))
+
+				return options
+			}
+		} catch (error) {
+			setIsLoadingPosts(false)
+
+			console.error('Error fetching options', error)
+			return []
+		}
+	}
 
 	const onSubmit: SubmitHandler<IForm> = data => {
 		console.log(data)
@@ -49,36 +96,30 @@ export function App() {
 				className='flex flex-col flex-wrap gap-5'
 			>
 				<h1 className='mb-10 text-2xl font-bold'>
-					Custom UI Select with React Hook Form
+					Custom UI Select and AsyncSelect with React Hook Form
 				</h1>
 
 				<div className='flex w-full flex-col gap-5'>
-					<span>Single Select</span>
-					<MultiSelect
+					<span>Multi Select</span>
+					<AsyncMultiSelect
 						name='stringOption'
 						control={formMethod.control}
 						required
-						options={stringOptions}
+						loadOptions={fetchUsers}
+						isLoading={isLoadingUsers}
+						isDisabled={isLoadingUsers}
 					/>
 				</div>
 
 				<div className='flex w-full flex-col gap-5'>
-					<span>Number Single Select</span>
-					<SingleSelect
+					<span> Single Select</span>
+					<AsyncSingleSelect
 						name='numberOption'
 						control={formMethod.control}
 						required
-						options={numberOptions}
-					/>
-				</div>
-
-				<div className='flex w-full flex-col gap-5'>
-					<span>Boolean Single Select</span>
-					<SingleSelect
-						name='booleanOption'
-						control={formMethod.control}
-						required
-						options={booleanOptions}
+						loadOptions={fetchPosts}
+						isLoading={isLoadingPosts}
+						isDisabled={isLoadingPosts}
 					/>
 				</div>
 
