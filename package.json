@@ -19,7 +19,8 @@
 		"react-dom": "^18.3.1",
 		"react-hook-form": "^7.53.0",
 		"react-select": "^5.8.1",
-		"sass": "^1.79.1",
+		"sass": "^1.79.2",
+		"sweetalert2": "^11.14.0",
 		"tailwind-merge": "^2.5.2",
 		"tailwindcss-animate": "^1.0.7"
 	},
@@ -27,7 +28,7 @@
 		"@eslint/js": "^9.10.0",
 		"@trivago/prettier-plugin-sort-imports": "^4.3.0",
 		"@types/node": "^22.5.5",
-		"@types/react": "^18.3.7",
+		"@types/react": "^18.3.8",
 		"@types/react-dom": "^18.3.0",
 		"@types/react-flatpickr": "^3.8.11",
 		"@vitejs/plugin-react": "^4.3.1",
