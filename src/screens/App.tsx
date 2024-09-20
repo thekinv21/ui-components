@@ -1,17 +1,13 @@
 import { SubmitHandler, useForm } from 'react-hook-form'
 
 import { Button } from '@/components/ui/button/button'
-import { RangeDate } from '@/components/ui/datePicker/range/RangeDate'
-import { SingleDate } from '@/components/ui/datePicker/single/SingleDate'
-import { Field4 } from '@/components/ui/field/example-4/Field4'
-import { TextArea4 } from '@/components/ui/textarea/example-4/TextArea4'
+import { MultiSelect } from '@/components/ui/select/react-select/multi/MultiSelect'
+import { SingleSelect } from '@/components/ui/select/react-select/single/SingleSelect'
 
 interface IForm {
-	singleDate: Date
-	rangeDate: Date
-	test: string
-	test1: string
-	test2: string
+	stringOption: string | null
+	numberOption: number | null
+	booleanOption: boolean | null
 }
 
 export function App() {
@@ -19,8 +15,31 @@ export function App() {
 		mode: 'onChange'
 	})
 
+	const stringOptions = [
+		{ value: 'string1', label: 'String1' },
+		{ value: 'string2', label: 'String2' }
+	]
+
+	const numberOptions = [
+		{ value: 1, label: 'Number1' },
+		{ value: 2, label: 'Number2' }
+	]
+
+	const booleanOptions = [
+		{ value: 'true', label: 'True' },
+		{ value: 'false', label: 'False' }
+	]
+
 	const onSubmit: SubmitHandler<IForm> = data => {
 		console.log(data)
+	}
+
+	const handleClear = () => {
+		formMethod.reset({
+			stringOption: null,
+			numberOption: null,
+			booleanOption: null
+		})
 	}
 
 	return (
@@ -30,42 +49,46 @@ export function App() {
 				className='flex flex-col flex-wrap gap-5'
 			>
 				<h1 className='mb-10 text-2xl font-bold'>
-					Custom UI DatePicker with React Hook Form
+					Custom UI Select with React Hook Form
 				</h1>
 
 				<div className='flex w-full flex-col gap-5'>
-					<span>Single DatePicker</span>
-					<SingleDate name='singleDate' control={formMethod.control} required />
-				</div>
-
-				<div className='flex w-full flex-col gap-5'>
-					<span>Range DatePicker</span>
-					<RangeDate name='rangeDate' control={formMethod.control} required />
-				</div>
-
-				<div className='flex w-full flex-col gap-5'>
-					<span>Field</span>
-					<Field4
-						name='test'
+					<span>Single Select</span>
+					<MultiSelect
+						name='stringOption'
 						control={formMethod.control}
 						required
-						label='Field'
+						options={stringOptions}
 					/>
 				</div>
 
 				<div className='flex w-full flex-col gap-5'>
-					<span>TextARea</span>
-					<TextArea4
-						label='Field'
-						name='test1'
+					<span>Number Single Select</span>
+					<SingleSelect
+						name='numberOption'
 						control={formMethod.control}
 						required
+						options={numberOptions}
 					/>
 				</div>
 
-				<Button type='submit' className='mt-10'>
-					Submit
-				</Button>
+				<div className='flex w-full flex-col gap-5'>
+					<span>Boolean Single Select</span>
+					<SingleSelect
+						name='booleanOption'
+						control={formMethod.control}
+						required
+						options={booleanOptions}
+					/>
+				</div>
+
+				<div className='mt-5 flex items-center gap-5'>
+					<Button onClick={handleClear} type='button' variant='warning'>
+						Clear
+					</Button>
+
+					<Button type='submit'>Submit</Button>
+				</div>
 			</form>
 		</section>
 	)
