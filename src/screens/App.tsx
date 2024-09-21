@@ -1,13 +1,21 @@
-import { useState } from 'react'
-
+import { useMutation, useQuery } from '@tanstack/react-query'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
+import { Alert, AlertNotification } from '@/components/ui/alert/Alert'
 import { Button } from '@/components/ui/button/button'
 import { SingleDate } from '@/components/ui/datePicker/single/SingleDate'
 import { Field2 } from '@/components/ui/field/example-2/Field2'
-import { AsyncMultiSelect } from '@/components/ui/select/async-select/multi/AsyncMultiSelect'
-import { AsyncSingleSelect } from '@/components/ui/select/async-select/single/AsyncSingleSelect'
-import { TextArea2 } from '@/components/ui/textarea/example-2/TextArea2'
+import { MultiSelect } from '@/components/ui/select/react-select/multi/MultiSelect'
+import { SingleSelect } from '@/components/ui/select/react-select/single/SingleSelect'
+
+import {
+	AlertCustomEnum,
+	AlertEnum,
+	AlertMessageEnum
+} from '@/types/base.types'
+import { IPost, IUser } from '@/types/helper.types'
+
+import { baseService } from '@/service/base.service'
 
 interface IForm {
 	stringOption: string | null
@@ -20,79 +28,62 @@ interface IForm {
 }
 
 export function App() {
-	const [isLoadingPosts, setIsLoadingPosts] = useState<boolean>(false)
-	const [isLoadingUsers, setIsLoadingUsers] = useState<boolean>(false)
-
 	const formMethod = useForm<IForm>({
 		mode: 'onChange'
 	})
 
-	async function fetchUsers() {
-		try {
-			setIsLoadingUsers(true)
+	const userQuery = useQuery({
+		queryKey: ['get-all-users'],
+		queryFn: () => baseService.getUsers(),
+		select: ({ data }) =>
+			data?.map((item: IUser) => {
+				return { label: item.username, value: item.id }
+			})
+	})
 
-			const response = await fetch(
-				`https://jsonplaceholder.typicode.com/users`,
-				{
-					method: 'GET'
-				}
-			)
+	const postQuery = useQuery({
+		queryKey: ['get-all-posts'],
+		queryFn: () => baseService.getPost(),
+		select: ({ data }) =>
+			data?.map((item: IPost) => {
+				return { label: item.title?.slice(0, 10), value: item.id }
+			})
+	})
 
-			if (response.ok) {
-				setIsLoadingUsers(false)
-
-				const data = await response.json()
-
-				const options = data.map((item: any) => ({
-					label: item.name,
-					value: item.id
-				}))
-
-				return options
-			}
-		} catch (error) {
-			setIsLoadingUsers(false)
-
-			console.error('Error fetching options', error)
-			return []
+	const mutateFun = useMutation({
+		mutationKey: ['delete-post-by-id'],
+		mutationFn: (id: number) => baseService.deletePost(id),
+		onSuccess: () => {
+			AlertNotification({
+				icon: AlertEnum.SUCCESS,
+				message: AlertMessageEnum.SUCCESS,
+				customClass: AlertCustomEnum.SUCCESS
+			})
+		},
+		onError: () => {
+			AlertNotification({
+				icon: AlertEnum.ERROR,
+				message: AlertMessageEnum.ERROR,
+				customClass: AlertCustomEnum.ERROR
+			})
 		}
-	}
-
-	async function fetchPosts() {
-		try {
-			setIsLoadingPosts(true)
-
-			const response = await fetch(`https://jsonplaceholder.typicode.com/posts`)
-
-			if (response.ok) {
-				setIsLoadingPosts(false)
-
-				const data = await response.json()
-
-				const options = data.map((item: any) => ({
-					label: item.title,
-					value: item.id
-				}))
-
-				return options
-			}
-		} catch (error) {
-			setIsLoadingPosts(false)
-
-			console.error('Error fetching options', error)
-			return []
-		}
-	}
+	})
 
 	const onSubmit: SubmitHandler<IForm> = data => {
 		console.log(data)
+
+		return AlertNotification({
+			icon: AlertEnum.SUCCESS,
+			message: AlertMessageEnum.SUCCESS,
+			customClass: AlertCustomEnum.SUCCESS
+		})
 	}
 
 	const handleClear = () => {
-		formMethod.reset({
-			stringOption: null,
-			numberOption: null,
-			booleanOption: null
+		Alert({
+			action: async () => {
+				return mutateFun.mutate(1)
+			}
 		})
 	}
 
@@ -108,31 +99,29 @@ export function App() {
 
 				<div className='flex w-full flex-col gap-5'>
 					<span>Multi Select</span>
-					<AsyncMultiSelect
+					<MultiSelect
 						name='stringOption'
 						control={formMethod.control}
-						required
-						loadOptions={fetchUsers}
-						isLoading={isLoadingUsers}
-						isDisabled={isLoadingUsers}
+						options={userQuery.data}
+						isLoading={userQuery.isFetching || userQuery.isLoading}
+						isDisabled={userQuery.isFetching || userQuery.isLoading}
 					/>
 				</div>
 
 				<div className='flex w-full flex-col gap-5'>
 					<span> Single Select</span>
-					<AsyncSingleSelect
+					<SingleSelect
 						name='numberOption'
 						control={formMethod.control}
-						required
-						loadOptions={fetchPosts}
-						isLoading={isLoadingPosts}
-						isDisabled={isLoadingPosts}
+						options={postQuery.data}
+						isLoading={postQuery.isFetching || postQuery.isLoading}
+						isDisabled={postQuery.isFetching || postQuery.isLoading}
 					/>
 				</div>
 
 				<div className='flex w-full flex-col gap-5'>
 					<span> Single DatePicker</span>
-					<SingleDate name='singleDate' control={formMethod.control} required />
+					<SingleDate name='singleDate' control={formMethod.control} />
 				</div>
 
 				<div className='flex w-full flex-col gap-5'>
@@ -141,17 +130,6 @@ export function App() {
 						name='field'
 						placeholder='Field Giriniz'
 						control={formMethod.control}
-						required
-					/>
-				</div>
-
-				<div className='flex w-full flex-col gap-5'>
-					<span> TextArea</span>
-					<TextArea2
-						placeholder='Note Giriniz'
-						name='textarea'
-						control={formMethod.control}
-						required
 					/>
 				</div>
 

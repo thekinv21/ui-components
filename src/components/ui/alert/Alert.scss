@@ -1,0 +1,46 @@
+.alert-confirm-btn {
+	@apply ml-3 w-28 whitespace-nowrap rounded-md bg-green-600 py-2 text-sm text-white transition duration-200 ease-in-out hover:bg-opacity-90;
+}
+
+.alert-cancel-btn {
+	@apply mr-3 w-28 whitespace-nowrap rounded-md bg-red-600 py-2 text-sm text-white transition duration-200 ease-in-out hover:bg-opacity-90;
+}
+
+.alert-color-warning {
+	background-color: #e2a03f !important;
+}
+
+.alert-color-success {
+	background-color: #00ab55 !important;
+}
+
+.alert-color-error {
+	background-color: #e7515a !important;
+}
+
+.alert-color-info {
+	background-color: #2196f3 !important;
+}
+
+.swal2-title {
+	@apply select-none font-normal capitalize;
+}
+
+.swal2-popup.swal2-toast .swal2-title {
+	@apply select-none capitalize text-gray-100;
+}
+
+@keyframes fadeInDown {
+	from {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.swal2-popup.swal2-toast.swal2-show {
+	animation: fadeInDown 0.5s !important;
+}
