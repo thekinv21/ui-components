@@ -2,8 +2,6 @@ import { Controller } from 'react-hook-form'
 import makeAnimated from 'react-select/animated'
 import AsyncSelect from 'react-select/async'
 
-import { ISelectOption } from '@/types/base.types'
-
 import { cn } from '@/utils/shadcn'
 
 import { IAsyncSelectProps } from '../../Select'
@@ -30,7 +28,7 @@ export function AsyncSingleSelect(props: IAsyncSelectProps) {
 								name={props.name}
 								placeholder={props.placeholder ?? 'Seçiniz...'}
 								value={value}
-								onChange={(selected: ISelectOption) => onChange(selected)}
+								onChange={onChange}
 								onBlur={onBlur}
 								components={animatedComponent}
 								classNamePrefix={`custom_select`}
