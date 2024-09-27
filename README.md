@@ -33,3 +33,7 @@ This is a reusable custom REACTJS and NEXTJS UI components for helping easealy c
 #### Headless Modal UI
 
 ![Modal UI](https://github.com/user-attachments/assets/91e9a469-3c6a-49db-ba05-c51c1cbf8e86)
+
+#### Table UI
+
+![Table](https://github.com/user-attachments/assets/a2ffe0be-2d10-4849-92d3-6c66e651a905)
