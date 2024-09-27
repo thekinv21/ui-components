@@ -1,0 +1,32 @@
+.table_responsive {
+	@apply overflow-auto;
+}
+
+table {
+	@apply w-full border-collapse;
+}
+
+table thead {
+	@apply border-b-0 bg-[#f6f8fa];
+}
+
+table thead tr,
+table tfoot tr {
+	@apply border-b-0 bg-[#f6f8fa];
+}
+table thead tr th,
+table tfoot tr th,
+table tbody tr td {
+	@apply px-4 py-3 text-left;
+}
+table thead tr th,
+table tfoot tr th {
+	@apply font-semibold;
+}
+table tbody tr {
+	@apply border-b border-[#eaf1ff]/40;
+}
+
+table.table_striped tbody tr:nth-child(odd) {
+	@apply bg-[#eaf1ff]/20;
+}
