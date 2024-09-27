@@ -94,9 +94,7 @@ export function CreateForm({}: ICreateForm) {
 			onSubmit={formMethod.handleSubmit(onSubmit)}
 			className='flex flex-col flex-wrap gap-5'
 		>
-			<h1 className='text-2xl font-bold'>
-				Custom UI Select and AsyncSelect with React Hook Form
-			</h1>
+			<h1 className='text-2xl font-bold'>Custom Modal UI</h1>
 
 			<div className='flex w-full flex-col gap-5'>
 				<span>Multi Select</span>
