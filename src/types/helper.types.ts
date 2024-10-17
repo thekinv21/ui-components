@@ -34,3 +34,9 @@ interface ICompany {
 	catchPhrase: string
 	bs: string
 }
+
+export interface IParams {
+	page: number
+	pageSize: number
+	searchTerm?: string
+}
