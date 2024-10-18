@@ -49,6 +49,7 @@ This is a reusable custom REACTJS and NEXTJS UI components for helping easealy c
 #### Sidebar UI
 
 ![Sidebar](https://github.com/user-attachments/assets/4879e5b6-982d-43b6-87f1-0fb436db072d)
+![Sidebar-2](https://github.com/user-attachments/assets/55fc6395-78f9-4d5e-ac5e-4132239649cf)
 
 #### Footers UI
 
