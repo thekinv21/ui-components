@@ -47,3 +47,8 @@ This is a reusable custom REACTJS and NEXTJS UI components for helping easealy c
 
 ![DataTable](https://github.com/user-attachments/assets/9b10f22e-53c5-4b9a-8759-8cd1612d2d19)
 
+
+#### Footers UI
+
+![image](https://github.com/user-attachments/assets/0de90247-e0b7-4723-a8c7-067b703af06a)
+
