@@ -50,3 +50,4 @@ This is a reusable custom REACTJS and NEXTJS UI components for helping easealy c
 
 ![Footer-1](https://github.com/user-attachments/assets/0de90247-e0b7-4723-a8c7-067b703af06a)
 ![Footer-2](https://github.com/user-attachments/assets/6f7a6f4f-02a9-4c14-b411-a4250f74ef0b)
+![Footer-3](https://github.com/user-attachments/assets/d861fac9-fe49-4306-b5e2-5b0b20f0902b)
