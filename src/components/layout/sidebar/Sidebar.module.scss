@@ -1,0 +1,27 @@
+.sidebar {
+	@apply relative flex h-[calc(100vh)] w-full max-w-[20rem] flex-col overflow-y-auto overflow-x-hidden bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.13)_0,rgba(0,163,255,0)_50%,rgba(0,163,255,0)_100%)] bg-clip-border p-4 text-gray-700 shadow-xl;
+}
+
+.logo {
+	@apply mb-2 p-4;
+
+	> h5 {
+		@apply block font-sans text-xl font-semibold leading-snug tracking-normal text-gray-900 antialiased;
+	}
+}
+
+.links {
+	@apply flex min-w-[240px] flex-col gap-1 p-2 font-sans text-base font-normal text-gray-700;
+}
+
+.link_button {
+	@apply flex w-full items-center rounded px-3 py-2.5 text-start leading-tight outline-none transition-all hover:bg-blue-50 hover:bg-opacity-80 hover:text-blue-900 focus:bg-blue-50 focus:bg-opacity-80 focus:text-blue-900 active:bg-blue-50 active:bg-opacity-80 active:text-blue-900;
+}
+
+.link_icon {
+	@apply mr-2.5 grid place-items-center;
+}
+
+.link_label {
+	@apply text-sm font-medium capitalize;
+}

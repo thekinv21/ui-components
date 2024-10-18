@@ -46,8 +46,16 @@ This is a reusable custom REACTJS and NEXTJS UI components for helping easealy c
 
 ![DataTable](https://github.com/user-attachments/assets/9b10f22e-53c5-4b9a-8759-8cd1612d2d19)
 
+#### Sidebar UI
+
+![Sidebar](https://github.com/user-attachments/assets/4879e5b6-982d-43b6-87f1-0fb436db072d)
+
 #### Footers UI
 
 ![Footer-1](https://github.com/user-attachments/assets/0de90247-e0b7-4723-a8c7-067b703af06a)
 ![Footer-2](https://github.com/user-attachments/assets/6f7a6f4f-02a9-4c14-b411-a4250f74ef0b)
 ![Footer-3](https://github.com/user-attachments/assets/d861fac9-fe49-4306-b5e2-5b0b20f0902b)
+
+#### Error Pages UI
+
+![404](https://github.com/user-attachments/assets/185a381f-711d-4c04-9098-f6e213ac0971)
