@@ -42,13 +42,11 @@ This is a reusable custom REACTJS and NEXTJS UI components for helping easealy c
 
 ![BreadCrumb](https://github.com/user-attachments/assets/e6d319e5-c260-477c-abae-daf46b2a5162)
 
-
 #### Custom DataTable UI
 
 ![DataTable](https://github.com/user-attachments/assets/9b10f22e-53c5-4b9a-8759-8cd1612d2d19)
 
-
 #### Footers UI
 
-![image](https://github.com/user-attachments/assets/0de90247-e0b7-4723-a8c7-067b703af06a)
-
+![Footer-1](https://github.com/user-attachments/assets/0de90247-e0b7-4723-a8c7-067b703af06a)
+![Footer-2](https://github.com/user-attachments/assets/6f7a6f4f-02a9-4c14-b411-a4250f74ef0b)

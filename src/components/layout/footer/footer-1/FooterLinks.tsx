@@ -8,8 +8,8 @@ export function FooterLinks() {
 				{ name: 'About', href: '#' },
 				{ name: 'Meet the Team', href: '#' },
 				{ name: 'History', href: '#' },
-				{ name: 'Careers', href: '#' },
-			],
+				{ name: 'Careers', href: '#' }
+			]
 		},
 		{
 			section: 'Services',
@@ -18,16 +18,16 @@ export function FooterLinks() {
 				{ name: 'Company Review', href: '#' },
 				{ name: 'Accounts Review', href: '#' },
 				{ name: 'HR Consulting', href: '#' },
-				{ name: 'SEO Optimisation', href: '#' },
-			],
+				{ name: 'SEO Optimisation', href: '#' }
+			]
 		},
 		{
 			section: 'Helpful Links',
 			links: [
 				{ name: 'Contact', href: '#' },
 				{ name: 'FAQs', href: '#' },
-				{ name: 'Live Chat', href: '#' },
-			],
+				{ name: 'Live Chat', href: '#' }
+			]
 		},
 		{
 			section: 'Legal',
@@ -35,9 +35,9 @@ export function FooterLinks() {
 				{ name: 'Privacy Policy', href: '#' },
 				{ name: 'Terms & Conditions', href: '#' },
 				{ name: 'Returns Policy', href: '#' },
-				{ name: 'Accessibility', href: '#' },
-			],
-		},
+				{ name: 'Accessibility', href: '#' }
+			]
+		}
 	]
 
 	return (
