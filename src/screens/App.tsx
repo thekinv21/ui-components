@@ -1,50 +1,21 @@
-import React from 'react'
-
-import { ColumnDef, PaginationState } from '@tanstack/react-table'
+import { PaginationState } from '@tanstack/react-table'
 
 import { BreadCrumbExample3 } from '@/components/ui/breadcrumb/example-3/BreadCrumbExample3'
-import { INews } from '@/components/ui/datatable/datatable'
-import { CustomDataTable } from '@/components/ui/datatable/Example'
+import { DataTable, useDataTableColumns } from '@/components/ui/dataTable'
 
+import { QueryKeyEnum } from '@/constant/queryKey.constant'
 import { baseService } from '@/service/base.service'
 
 export function App() {
-	const columns = React.useMemo<ColumnDef<INews>[]>(
-		() => [
-			{
-				accessorKey: 'title',
-				header: () => <span>Başlık</span>,
-				cell: info => info.getValue(),
-				footer: props => props.column.id
-			},
-			{
-				accessorKey: 'description',
-				header: () => <span>Açıklama</span>,
-				cell: info => info.getValue(),
-				footer: props => props.column.id
-			},
-			{
-				accessorKey: 'date',
-				header: () => <span>Tarih</span>,
-				cell: info => info.getValue()
-			},
-			{
-				accessorKey: 'isFeatured',
-				header: () => <span>Öne Çıkan Mı?</span>,
-				cell: info => (info.getValue() ? 'Evet' : 'Hayır'),
-				footer: props => props.column.id
-			}
-		],
-		[]
-	)
+	const { columns } = useDataTableColumns()
 
-	const getNews = async (pagination: PaginationState) => {
+	const getNews = async (p: PaginationState) => {
 		const response = await baseService.getAll({
-			page: pagination.pageIndex,
-			pageSize: pagination.pageSize
+			page: p.pageIndex,
+			pageSize: p.pageSize
 		})
 
-		return response
+		return response?.data
 	}
 
 	return (
@@ -64,10 +35,11 @@ export function App() {
 				/>
 
 				<div className='flex flex-col gap-5'>
-					<CustomDataTable
+					<DataTable
+						tableHeading='Haberler Listesi'
+						customQueryKey={QueryKeyEnum.GET_ALL_NEWS}
+						customQueryFn={getNews}
 						columns={columns}
-						httpGetRequest={getNews}
-						tableLabel='Haberler Listesi'
 					/>
 				</div>
 			</div>

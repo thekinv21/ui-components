@@ -1,0 +1,106 @@
+.panel {
+	@apply relative w-full rounded bg-white p-5 shadow;
+}
+
+.custom_table_heading {
+	@apply mb-4 flex flex-col gap-5 px-1 md:flex-row md:justify-between md:gap-0;
+
+	.input_container {
+		@apply relative w-full xl:w-auto;
+	}
+	.heading {
+		@apply inline-block text-lg font-semibold uppercase text-gray-600;
+	}
+
+	.input {
+		@apply w-full rounded-md border border-gray-200 py-2 pl-10 pr-3 text-sm outline-none transition-all duration-300 ease-in-out hover:border-indigo-500 focus:border-indigo-500 md:max-w-xs;
+	}
+
+	.search_icon {
+		@apply absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-400;
+	}
+}
+
+.custom_table_content {
+	@apply overflow-x-auto rounded border border-gray-100;
+}
+
+.custom_table {
+	@apply min-w-full divide-y divide-gray-100;
+
+	> thead {
+		@apply select-none bg-gray-50;
+
+		> tr {
+			> th {
+				@apply max-w-[300px] truncate p-4 text-left text-[14px] font-semibold text-gray-700;
+			}
+		}
+	}
+
+	> tbody {
+		@apply divide-y divide-gray-100 bg-white;
+
+		> tr {
+			@apply hover:bg-gray-50;
+
+			> td {
+				@apply max-w-[300px] truncate px-4 py-4 text-sm text-gray-700;
+			}
+		}
+	}
+}
+
+.custom_table_footer {
+	@apply mb-2 mt-8 flex flex-col items-center justify-center gap-5 sm:flex-row sm:justify-between;
+
+	.show_per_item {
+		@apply text-sm font-semibold uppercase text-gray-600 lg:pl-1;
+	}
+
+	.navigation_container {
+		@apply flex flex-col items-center gap-5 sm:flex-row md:px-1;
+
+		.navigation {
+			@apply flex items-center gap-2 whitespace-nowrap;
+
+			> button {
+				@apply rounded bg-gray-100/50 p-2 hover:bg-gray-100 disabled:opacity-50;
+			}
+
+			> span {
+				@apply mx-2 text-sm font-semibold uppercase text-gray-600;
+			}
+		}
+
+		.show_per_page {
+			@apply rounded border border-gray-300 px-5 py-1.5 text-center text-sm font-semibold uppercase text-gray-600 outline-none;
+		}
+	}
+}
+
+.loader_container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 40px;
+}
+
+.loader {
+	border: 4px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 4px solid #3498db;
+	width: 40px;
+	height: 40px;
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

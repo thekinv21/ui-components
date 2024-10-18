@@ -1,3 +1,15 @@
+export interface INews {
+	id: number
+	imageUrl: string
+	date: string
+	title: string
+	description: string
+	isFeatured: boolean
+	translations: ITranslation[]
+	nextId: number | null
+	prevId: number | null
+}
+
 export interface ITranslation {
 	createdDateTime: string
 	updatedDateTime: string
@@ -9,18 +21,6 @@ export interface ITranslation {
 	translatableTableName: string
 	translatableValueId: number
 	value: string
-}
-
-export interface INews {
-	id: number
-	imageUrl: string
-	date: string
-	title: string
-	description: string
-	isFeatured: boolean
-	translations: ITranslation[]
-	nextId: number | null
-	prevId: number | null
 }
 
 export interface IPaginatedResponse<T> {
