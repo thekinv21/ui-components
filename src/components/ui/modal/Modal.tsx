@@ -8,13 +8,16 @@ interface IModal {
 		isOpen: boolean
 		setIsOpen: (i: boolean) => void
 	}
-	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+	position?: 'center' | 'start'
+	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '5xl'
 	animate?:
 		| 'animate__fadeIn'
 		| 'animate__slideInDown'
 		| 'animate__fadeInUp'
 		| 'animate__slideInUp'
 		| 'animate__zoomInUp'
+		| 'animate__fadeInLeft'
+		| 'animate__fadeInRight'
 }
 
 export function Modal({ children, size = 'md', ...props }: IModal) {
@@ -32,8 +35,24 @@ export function Modal({ children, size = 'md', ...props }: IModal) {
 				return `max-w-xl`
 			case '2xl':
 				return `max-w-2xl`
+			case '5xl':
+				return `max-w-5xl`
+			case '3xl':
+				return `max-w-3xl`
 			default:
 				return 'max-w-md'
+		}
+	}
+
+	const positionCheck = (position: string): string => {
+		switch (position) {
+			case 'center':
+				return `items-center justify-center`
+			case 'start':
+				return `items-start justify-center`
+
+			default:
+				return 'items-start justify-center'
 		}
 	}
 
@@ -44,10 +63,12 @@ export function Modal({ children, size = 'md', ...props }: IModal) {
 			open={props.modal.isOpen}
 			onClose={() => props.modal.setIsOpen(false)}
 		>
-			<DialogBackdrop className='fixed inset-0 z-10 overflow-y-auto bg-[black]/50'>
-				<div className='flex min-h-full items-center justify-center p-4 text-center'>
+			<DialogBackdrop className='fixed inset-0 overflow-y-auto bg-[black]/50'>
+				<div
+					className={`flex min-h-full p-4 text-center ${props.position ? positionCheck(props.position) : 'items-start justify-center'}`}
+				>
 					<DialogPanel
-						className={`animate__animated ${props.animate ? props.animate : 'animate__fadeIn'} w-full transform overflow-hidden rounded-xl bg-white p-6 text-left align-middle shadow-xl transition-all ${sizeChange(
+						className={`animate__animated ${props.animate ?? 'animate__fadeIn'} w-full transform rounded-xl bg-white p-6 text-left align-middle shadow-xl transition-all ${sizeChange(
 							size
 						)}`}
 					>
