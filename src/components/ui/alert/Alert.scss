@@ -1,9 +1,9 @@
 .alert-confirm-btn {
-	@apply ml-3 w-28 whitespace-nowrap rounded-md bg-green-600 py-2 text-sm text-white transition duration-200 ease-in-out hover:bg-opacity-90;
+	@apply ml-3 min-w-28 max-w-32 truncate whitespace-nowrap rounded-md bg-green-600 py-2 text-sm text-white transition duration-200 ease-in-out hover:bg-opacity-90;
 }
 
 .alert-cancel-btn {
-	@apply mr-3 w-28 whitespace-nowrap rounded-md bg-red-600 py-2 text-sm text-white transition duration-200 ease-in-out hover:bg-opacity-90;
+	@apply mr-3 min-w-28 whitespace-nowrap rounded-md bg-red-600 py-2 text-sm text-white transition duration-200 ease-in-out hover:bg-opacity-90;
 }
 
 .alert-color-warning {

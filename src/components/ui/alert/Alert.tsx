@@ -40,17 +40,18 @@ export function Alert<T>(props: IAlert<T>) {
 	})
 	swalWithBootstrapButtons
 		.fire({
-			title: 'Are you sure?',
-			text: 'You want to continue?',
-			icon: 'warning',
-			showCancelButton: true,
-			confirmButtonText: `Confirm`,
-			cancelButtonText: `Cancel`,
+			title: props.title ?? 'Are you sure?',
+			text: props.subTitle ?? 'You want to continue?',
+			icon: props.icon ?? 'warning',
+			confirmButtonText: props.confirmText ?? `Confirm`,
+			cancelButtonText: props.cancelText ?? `Cancel`,
 			reverseButtons: true,
+			showConfirmButton: props.isConfirmAlert ?? true,
+			showCancelButton: props.isConfirmAlert ?? true,
 			padding: '2em'
 		})
 		.then(result => {
-			if (result.isConfirmed) {
+			if (result.isConfirmed && props.action) {
 				props.action()
 			}
 		})
