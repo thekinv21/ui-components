@@ -1,0 +1,15 @@
+.main_layout {
+	@apply flex min-h-screen text-black transition-all duration-300;
+}
+
+.sidebar {
+	@apply hidden lg:block lg:w-[260px];
+}
+
+.container {
+	@apply flex min-h-screen flex-1 flex-col;
+}
+
+.content {
+	@apply max-h-[100dvh] min-h-[100dvh] overflow-y-auto overflow-x-hidden p-4 sm:p-6 lg:ltr:ml-[260px] lg:rtl:mr-[260px];
+}

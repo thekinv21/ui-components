@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
 
-import { BlankLayout } from '@/components/layout/blank/BlankLayout'
-import { DefaultLayout } from '@/components/layout/default/DefaultLayout'
+import { BlankLayout } from '@/components/layout/blank-layout'
+import { MainLayout } from '@/components/layout/main-layout'
 
 import { routes } from './routes'
 
@@ -12,7 +12,7 @@ const finalRoutes = routes.map(route => {
 			route.layout === 'blank' ? (
 				<BlankLayout>{route.element}</BlankLayout>
 			) : (
-				<DefaultLayout>{route.element}</DefaultLayout>
+				<MainLayout>{route.element}</MainLayout>
 			)
 	}
 })

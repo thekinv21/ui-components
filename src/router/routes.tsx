@@ -14,6 +14,7 @@ const BreadCrumbPage = lazy(() => import('@/screens/components/breadcrumb'))
 const SweetAlertPage = lazy(() => import('@/screens/components/sweet-alerts'))
 const ButtonPage = lazy(() => import('@/screens/components/buttons'))
 const DatePickerPage = lazy(() => import('@/screens/components/datePicker'))
+const ModalPage = lazy(() => import('@/screens/components/modals'))
 
 const routes = [
 	{
@@ -50,6 +51,26 @@ const routes = [
 			{
 				path: 'date-picker',
 				element: <DatePickerPage />
+			},
+			{
+				path: 'input',
+				element: <div>Input page</div>
+			},
+			{
+				path: 'react-select',
+				element: <div>React-Select page</div>
+			},
+			{
+				path: 'textarea',
+				element: <div>textarea page</div>
+			},
+			{
+				path: 'modal',
+				element: <ModalPage />
+			},
+			{
+				path: 'date-picker',
+				element: <div>Input page</div>
 			}
 		]
 	}
