@@ -1,5 +1,6 @@
-import { useForm } from 'react-hook-form'
+import { SubmitHandler, useForm } from 'react-hook-form'
 
+import { Button } from '@/components/ui/button/button'
 import { RangeDate } from '@/components/ui/datePicker/range/RangeDate'
 import { SingleDate } from '@/components/ui/datePicker/single/SingleDate'
 
@@ -8,16 +9,23 @@ interface IForm {
 	rangeDate: Date
 }
 
-export function DatePickers() {
+export function DatePickerFormExample() {
 	const formMethod = useForm<IForm>({
 		mode: 'onChange'
 	})
 
+	const onSubmit: SubmitHandler<IForm> = data => {
+		alert(JSON.stringify(data))
+	}
+
 	return (
-		<div className='panel my-10 space-y-3 text-sm'>
+		<form
+			className='panel my-10 space-y-3 text-sm'
+			onSubmit={formMethod.handleSubmit(onSubmit)}
+		>
 			<div>
 				<h1 className='py-3 text-sm font-normal uppercase text-gray-500'>
-					React DatePicker
+					React DatePicker with React Hook Form
 				</h1>
 
 				<p className='py-3 text-sm font-normal text-gray-500'>
@@ -27,7 +35,7 @@ export function DatePickers() {
 				</p>
 			</div>
 
-			<div className='grid grid-cols-2 gap-10 font-light'>
+			<div className='flex flex-row gap-5 font-light'>
 				<div className='flex w-full flex-col gap-2'>
 					<span>Single DatePicker</span>
 					<SingleDate name='singleDate' control={formMethod.control} required />
@@ -38,6 +46,8 @@ export function DatePickers() {
 					<RangeDate name='rangeDate' control={formMethod.control} required />
 				</div>
 			</div>
-		</div>
+
+			<Button>Submit</Button>
+		</form>
 	)
 }
