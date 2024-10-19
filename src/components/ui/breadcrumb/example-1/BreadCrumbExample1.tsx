@@ -1,4 +1,4 @@
-import { HomeIcon } from 'lucide-react'
+import { LayoutDashboardIcon } from 'lucide-react'
 
 interface IBreadCrumbExample1 {
 	array: {
@@ -9,17 +9,17 @@ interface IBreadCrumbExample1 {
 
 export function BreadCrumbExample1({ array }: IBreadCrumbExample1) {
 	return (
-		<ol className='flex select-none text-gray-500'>
+		<ol className='flex select-none items-center text-sm font-light text-blue-600'>
 			<li>
-				<a href='/' className='hover:text-gray-500/70'>
-					<HomeIcon strokeWidth={1} size={20} color='#888ea8' />
+				<a href='/' className='text-blue-600'>
+					<LayoutDashboardIcon strokeWidth={1} size={18} />
 				</a>
 			</li>
 
 			{array.map(({ url, key }, idx: number) => (
 				<li
 					key={idx}
-					className="capitalize before:px-1.5 before:content-['/'] hover:text-blue-600"
+					className="font-extralight before:px-2.5 before:content-['/'] hover:text-blue-500"
 				>
 					<a href={url} type='button'>
 						{key}
