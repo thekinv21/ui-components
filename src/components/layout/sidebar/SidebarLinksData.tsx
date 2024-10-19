@@ -4,15 +4,21 @@ import {
 	CommandIcon,
 	ComponentIcon,
 	FileInputIcon,
-	LayersIcon,
+	KeySquareIcon,
 	LayoutDashboardIcon,
 	LinkIcon,
 	ListCheckIcon,
+	LockKeyholeIcon,
+	LockKeyholeOpenIcon,
+	MailCheckIcon,
 	MessageSquareQuoteIcon,
 	PercentIcon,
-	PuzzleIcon,
+	SearchXIcon,
 	ServerCrashIcon,
-	TableIcon
+	ShieldXIcon,
+	TableIcon,
+	UserCheck2Icon,
+	UserRoundXIcon
 } from 'lucide-react'
 
 export interface ISidebarLink {
@@ -41,83 +47,104 @@ export const sidebarLinks: ISidebarLink[] = [
 		subLinks: [
 			{
 				label: 'Table',
-				url: '/table',
+				url: '/components/table',
 				icon: <TableIcon size={16} strokeWidth={2} />
 			},
 			{
-				label: 'BreadCrumb',
-				url: '/breadcrumb',
+				label: 'Breadcrumb',
+				url: '/components/breadcrumb',
 				icon: <LinkIcon size={16} strokeWidth={2} />
 			},
 			{
 				label: 'Sweet Alerts',
-				url: '/sweet-alert',
+				url: '/components/sweet-alert',
 				icon: <AlertCircleIcon size={16} strokeWidth={2} />
 			},
 			{
 				label: 'Buttons',
-				url: '/button',
+				url: '/components/button',
 				icon: <CommandIcon size={16} strokeWidth={2} />
 			},
 			{
 				label: 'DatePicker',
-				url: '/date-picker',
+				url: '/components/date-picker',
 				icon: <CalendarClockIcon size={16} strokeWidth={2} />
 			},
 			{
+				label: 'Inputs',
+				url: '/components/input',
+				icon: <FileInputIcon size={16} strokeWidth={2} />
+			},
+			{
+				label: 'React Select',
+				url: '/components/react-select',
+				icon: <ListCheckIcon size={16} strokeWidth={2} />
+			},
+			{
+				label: 'TextArea',
+				url: '/components/textarea',
+				icon: <MessageSquareQuoteIcon size={16} strokeWidth={2} />
+			},
+			{
 				label: 'Modals',
-				url: '/modal',
+				url: '/components/modal',
 				icon: <PercentIcon size={16} strokeWidth={2} />
 			}
 		]
 	},
 	{
-		label: 'Form',
-		url: '/form/:componentName',
-		icon: <PuzzleIcon size={21} strokeWidth={2} />,
+		label: 'Authentication',
+		url: '/auth/:pageName',
+		icon: <LockKeyholeIcon size={21} strokeWidth={2} />,
 		subLinks: [
 			{
-				label: 'Inputs',
-				url: '/input',
-				icon: <FileInputIcon size={16} strokeWidth={2} />
+				label: 'Login',
+				url: '/login',
+				icon: <LockKeyholeOpenIcon size={16} strokeWidth={2} />
 			},
 			{
-				label: 'React Select',
-				url: '/',
-				icon: <ListCheckIcon size={16} strokeWidth={2} />
+				label: 'Register',
+				url: '/register',
+				icon: <UserCheck2Icon size={16} strokeWidth={2} />
 			},
 			{
-				label: 'TextArea',
-				url: '/',
-				icon: <MessageSquareQuoteIcon size={16} strokeWidth={2} />
+				label: 'Recover',
+				url: '/recover',
+				icon: <MailCheckIcon size={16} strokeWidth={2} />
+			},
+
+			{
+				label: 'Unlock',
+				url: '/unlock',
+				icon: <LockKeyholeOpenIcon size={16} strokeWidth={2} />
+			},
+
+			{
+				label: 'Forgot Password',
+				url: '/forgot-password',
+				icon: <KeySquareIcon size={16} strokeWidth={2} />
 			}
 		]
 	},
 	{
-		label: 'Pages',
-		url: '/pages/:pageName',
-		icon: <LayersIcon size={21} strokeWidth={2} />,
-		subLinks: []
-	},
-	{
 		label: 'Error',
 		url: '/error/:errorName',
-		icon: <ServerCrashIcon size={21} strokeWidth={2} />,
+		icon: <ShieldXIcon size={21} strokeWidth={2} />,
 		subLinks: [
 			{
 				label: '404',
 				url: '/not-founds',
-				icon: <LayoutDashboardIcon size={16} strokeWidth={2} />
+				icon: <SearchXIcon size={16} strokeWidth={2} />
 			},
 			{
 				label: '403',
 				url: '/permission',
-				icon: <LayoutDashboardIcon size={16} strokeWidth={2} />
+				icon: <UserRoundXIcon size={16} strokeWidth={2} />
 			},
 			{
 				label: '500',
 				url: '/server-error',
-				icon: <LayoutDashboardIcon size={16} strokeWidth={2} />
+				icon: <ServerCrashIcon size={16} strokeWidth={2} />
 			}
 		]
 	}

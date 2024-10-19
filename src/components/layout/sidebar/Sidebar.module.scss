@@ -38,13 +38,13 @@
 }
 
 .dropdown_item {
-	@apply px-5 py-1.5 text-sm transition duration-300 ease-out;
+	@apply inline-flex w-full px-5 py-1.5 text-sm transition duration-300 ease-out;
+
+	> li {
+		@apply flex items-center gap-2;
+	}
 
 	&:hover {
 		@apply bg-blue-50 bg-opacity-80 text-blue-900;
-	}
-
-	.link {
-		@apply flex items-center gap-2;
 	}
 }

@@ -1,5 +1,3 @@
-import { Fragment } from 'react/jsx-runtime'
-
 import styles from './Sidebar.module.scss'
 import { SidebarItem, SidebarItemDropdown } from './SidebarItem'
 import { ISidebarLink, sidebarLinks } from './SidebarLinksData'
@@ -8,7 +6,7 @@ export function SidebarLinks() {
 	return (
 		<nav className={styles.links}>
 			{sidebarLinks.map((item: ISidebarLink, idx: number) => (
-				<Fragment>
+				<aside key={idx}>
 					{item.subLinks && item.subLinks.length ? (
 						<SidebarItemDropdown
 							key={idx}
@@ -17,9 +15,9 @@ export function SidebarLinks() {
 							subLinks={item.subLinks}
 						/>
 					) : (
-						<SidebarItem key={idx} icon={item.icon} label={item.label} />
+						<SidebarItem key={idx} item={item} />
 					)}
-				</Fragment>
+				</aside>
 			))}
 		</nav>
 	)

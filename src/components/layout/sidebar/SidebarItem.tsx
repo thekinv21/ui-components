@@ -5,19 +5,26 @@ import AnimateHeight from 'react-animate-height'
 import { NavLink } from 'react-router-dom'
 
 import styles from './Sidebar.module.scss'
-import { ISidebarSubLink } from './SidebarLinksData'
+import { ISidebarLink, ISidebarSubLink } from './SidebarLinksData'
 
 interface ISidebarItem {
-	icon: JSX.Element
-	label: string
+	item: ISidebarLink
 }
 
-export function SidebarItem({ icon, label }: ISidebarItem) {
+export function SidebarItem({ item }: ISidebarItem) {
 	return (
-		<div role='button' className={styles.link_button}>
-			<div className={styles.link_icon}>{icon}</div>
-			<span className={styles.link_label}>{label}</span>
-		</div>
+		<NavLink
+			to={item.url}
+			className={({ isActive }) =>
+				[
+					styles.link_button,
+					isActive ?? 'bg-blue-50 bg-opacity-80 text-blue-900'
+				].join(' ')
+			}
+		>
+			<div className={styles.link_icon}>{item.icon}</div>
+			<span className={styles.link_label}>{item.label}</span>
+		</NavLink>
 	)
 }
 
@@ -50,12 +57,21 @@ export function SidebarItemDropdown({
 			<AnimateHeight duration={500} height={isOpen ? 'auto' : 0}>
 				<ul className={styles.dropdown_list}>
 					{subLinks.map((item: ISidebarSubLink, idx: number) => (
-						<li key={idx} className={styles.dropdown_item}>
-							<NavLink to={item.url} className={styles.link}>
+						<NavLink
+							to={item.url}
+							key={idx}
+							className={({ isActive }) =>
+								[
+									styles.dropdown_item,
+									isActive ? 'bg-blue-50 bg-opacity-80 text-blue-900' : ''
+								].join(' ')
+							}
+						>
+							<li>
 								<span>{item.icon}</span>
 								<p>{item.label}</p>
-							</NavLink>
-						</li>
+							</li>
+						</NavLink>
 					))}
 				</ul>
 			</AnimateHeight>
