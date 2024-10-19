@@ -5,7 +5,7 @@ import { cn } from '@/utils/shadcn'
 
 import { IDatePicker } from '../Date'
 import styles from '../Date.module.scss'
-import '../DatePicker.css'
+import '../DatePicker.scss'
 
 import 'react-datepicker/dist/react-datepicker.css'
 

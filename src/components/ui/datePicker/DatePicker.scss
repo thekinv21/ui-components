@@ -15,10 +15,7 @@
 	right: 10px !important;
 	top: 4px !important;
 	font-weight: 100 !important;
-}
-
-svg {
-	fill: #888888 !important;
+	opacity: 0.4;
 }
 
 .react-datepicker__month-container,
@@ -94,7 +91,6 @@ svg {
 	border-radius: 50% !important;
 	width: 3rem !important;
 	line-height: 3rem !important;
-	transition: 0.2s ease !important;
 }
 
 .react-datepicker__day:hover {
@@ -113,5 +109,4 @@ svg {
 		.react-datepicker__year-text--in-range
 	) {
 	background-color: #4361ee !important;
-	transition: all ease 0.5s !important;
 }
