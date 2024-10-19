@@ -1,26 +1,13 @@
-import { ReactNode } from 'react'
-
 import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react'
 
-interface IModal {
-	children: ReactNode
-	modal: {
-		isOpen: boolean
-		setIsOpen: (i: boolean) => void
-	}
-	position?: 'center' | 'start'
-	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '5xl'
-	animate?:
-		| 'animate__fadeIn'
-		| 'animate__slideInDown'
-		| 'animate__fadeInUp'
-		| 'animate__slideInUp'
-		| 'animate__zoomInUp'
-		| 'animate__fadeInLeft'
-		| 'animate__fadeInRight'
-}
+import { IModal } from './Modal.d'
 
-export function Modal({ children, size = 'md', ...props }: IModal) {
+export function Modal({
+	children,
+	size = 'md',
+	position = 'start',
+	...props
+}: IModal) {
 	const sizeChange = (size: string): string => {
 		switch (size) {
 			case 'xs':
@@ -47,9 +34,7 @@ export function Modal({ children, size = 'md', ...props }: IModal) {
 	const positionCheck = (position: string): string => {
 		switch (position) {
 			case 'center':
-				return `items-center justify-center`
-			case 'start':
-				return `items-start justify-center`
+				return 'items-center justify-center'
 
 			default:
 				return 'items-start justify-center'
@@ -65,12 +50,12 @@ export function Modal({ children, size = 'md', ...props }: IModal) {
 		>
 			<DialogBackdrop className='fixed inset-0 overflow-y-auto bg-[black]/50'>
 				<div
-					className={`flex min-h-full p-4 text-center ${props.position ? positionCheck(props.position) : 'items-start justify-center'}`}
+					className={`flex min-h-full ${positionCheck(position)} p-4 text-center`}
 				>
 					<DialogPanel
 						className={`animate__animated ${props.animate ?? 'animate__fadeIn'} w-full transform rounded-xl bg-white p-6 text-left align-middle shadow-xl transition-all ${sizeChange(
 							size
-						)}`}
+						)} `}
 					>
 						<div className='mt-4'>{children}</div>
 					</DialogPanel>

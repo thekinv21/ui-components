@@ -75,7 +75,7 @@ export function Modals() {
 				</p>
 			</div>
 
-			<div className='grid grid-cols-1 gap-5 py-10 md:grid-cols-2'>
+			<div className='grid grid-cols-1 gap-5 py-10 md:grid-cols-4'>
 				{BUTTON_CONFIG.map(({ label, modalName, variant }) => (
 					<div key={modalName} className='panel flex flex-col'>
 						<h1 className='pb-5 text-sm font-normal uppercase text-gray-500'>
@@ -102,6 +102,7 @@ export function Modals() {
 						setIsOpen: handleClose
 					}}
 					size={MODAL_CONFIG[isOpen].size}
+					position={MODAL_CONFIG[isOpen].position}
 					animate={MODAL_CONFIG[isOpen].animate}
 				>
 					<ModalFormExample />
