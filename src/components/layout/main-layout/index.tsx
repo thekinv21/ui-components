@@ -2,10 +2,11 @@ import { Suspense } from 'react'
 
 import { cn } from '@/utils/shadcn'
 
+import { Loader } from '../../ui/loader/Loader'
 import { Sidebar } from '../sidebar/Sidebar'
 
+import { CustomSetting } from './customize/CustomSetting'
 import styles from './MainLayout.module.scss'
-import { MainLayoutLoader } from './MainLayoutLoader'
 import { MainToTopButton } from './MainToTopButton'
 import { useMainLayout } from './useMainLayout'
 
@@ -14,13 +15,15 @@ interface IMainLayout {
 }
 
 export function MainLayout({ children }: IMainLayout) {
-	const { isLoader, isTopButton, navigateToTop } = useMainLayout()
+	const { isLoader, isTopButton, navigateToTop, configStore } = useMainLayout()
 
 	return (
 		<section className='relative'>
-			{isLoader && <MainLayoutLoader />}
+			{isLoader && <Loader />}
 
 			{isTopButton && <MainToTopButton navigateToTop={navigateToTop} />}
+
+			<CustomSetting />
 
 			<div className={styles.main_layout}>
 				<div className={styles.sidebar}>
@@ -35,7 +38,7 @@ export function MainLayout({ children }: IMainLayout) {
 							id='screen_content'
 							className={cn(
 								styles.content,
-								'animate__slideInUp animate__animated'
+								`${configStore.animation} animate__animated`
 							)}
 						>
 							{children}

@@ -1,0 +1,41 @@
+.mainLayoutSetting {
+	.toggleButton {
+		@apply absolute bottom-0 right-0 top-0 z-20 my-auto flex h-10 w-12 cursor-pointer items-center justify-center rounded-l-lg bg-primary text-white;
+	}
+
+	.icon {
+		@apply animate-[spin_3s_linear_infinite] opacity-70;
+	}
+
+	.overlay {
+		@apply fixed inset-0 z-[51] bg-[black]/60 px-4 transition-opacity;
+	}
+
+	.nav {
+		@apply fixed bottom-0 right-0 top-0 z-[51] w-full max-w-[400px] bg-white p-4 shadow-[5px_0_25px_0_rgba(94,92,154,0.1)] transition-[right] duration-300 dark:bg-black;
+	}
+
+	.toggleButtonInside {
+		@apply absolute -left-12 bottom-0 top-0 z-[52] my-auto flex h-10 w-12 cursor-pointer items-center justify-center rounded-l-lg bg-primary text-white;
+	}
+
+	.header {
+		@apply relative pb-5 text-center;
+	}
+
+	.closeButton {
+		@apply absolute right-0 top-0 opacity-30 hover:opacity-100;
+	}
+
+	.section {
+		@apply mb-3 rounded-md border border-dashed p-3;
+	}
+
+	.sectionTitle {
+		@apply mb-1 text-base leading-none;
+	}
+
+	.sectionDescription {
+		@apply text-xs;
+	}
+}
