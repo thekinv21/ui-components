@@ -1,8 +1,12 @@
 import { useEffect, useState } from 'react'
 
+import { useConfigStore } from '@/store/config.store'
+
 export const useMainLayout = () => {
 	const [isLoader, setIsLoader] = useState<boolean>(true)
 	const [isTopButton, setIsTopButton] = useState<boolean>(false)
+
+	const configStore = useConfigStore()
 
 	const content = document.getElementById('screen_content')
 
@@ -45,6 +49,7 @@ export const useMainLayout = () => {
 		isLoader,
 		isTopButton,
 		setIsLoader,
-		navigateToTop
+		navigateToTop,
+		configStore
 	}
 }

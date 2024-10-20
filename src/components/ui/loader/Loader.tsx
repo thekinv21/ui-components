@@ -1,4 +1,4 @@
-export function MainLayoutLoader() {
+export function Loader() {
 	return (
 		<section
 			id='screen_loader'

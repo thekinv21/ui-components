@@ -27,7 +27,8 @@
 		"sass": "^1.79.3",
 		"sweetalert2": "^11.14.1",
 		"tailwind-merge": "^2.5.2",
-		"tailwindcss-animate": "^1.0.7"
+		"tailwindcss-animate": "^1.0.7",
+		"zustand": "^5.0.0"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.10.0",
