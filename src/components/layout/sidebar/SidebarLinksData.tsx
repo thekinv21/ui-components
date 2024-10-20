@@ -8,6 +8,7 @@ import {
 	LayoutDashboardIcon,
 	LinkIcon,
 	ListCheckIcon,
+	ListIcon,
 	LockKeyholeIcon,
 	LockKeyholeOpenIcon,
 	MailCheckIcon,
@@ -74,6 +75,11 @@ export const sidebarLinks: ISidebarLink[] = [
 				label: 'Inputs',
 				url: '/components/input',
 				icon: <FileInputIcon size={16} strokeWidth={2} />
+			},
+			{
+				label: 'Select',
+				url: '/components/select',
+				icon: <ListIcon size={16} strokeWidth={2} />
 			},
 			{
 				label: 'React Select',
