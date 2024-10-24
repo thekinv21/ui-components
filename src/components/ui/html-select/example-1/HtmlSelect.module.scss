@@ -1,0 +1,40 @@
+.field_container {
+	@apply flex flex-col items-start;
+}
+
+.field_wrapper {
+	@apply relative w-full;
+}
+
+.wrapper {
+	@apply relative flex items-center;
+}
+.icon {
+	@apply pointer-events-none absolute left-0 pl-2;
+}
+
+.select {
+	@apply h-[40px] w-full border-0 border-b border-b-[#ccc] bg-transparent text-gray-700 placeholder:left-0 placeholder:text-gray-700;
+
+	-moz-appearance: none; /* Firefox */
+	-webkit-appearance: none; /* Safari and Chrome */
+	appearance: none;
+}
+
+.focus_border {
+	@apply absolute bottom-0 left-0 h-[1.6px] w-0;
+	transition: width 0.4s;
+}
+
+:focus {
+	outline: none;
+}
+
+.effect_1:hover ~ .focus_border,
+.effect_1:focus ~ .focus_border {
+	width: 100%;
+}
+
+.error_message {
+	@apply mt-3 text-xs;
+}
