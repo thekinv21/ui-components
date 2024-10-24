@@ -16,6 +16,7 @@ const ButtonPage = lazy(() => import('@/screens/components/buttons'))
 const DatePickerPage = lazy(() => import('@/screens/components/datePicker'))
 const ModalPage = lazy(() => import('@/screens/components/modals'))
 const SelectPage = lazy(() => import('@/screens/components/select'))
+const ReactSelectPage = lazy(() => import('@/screens/components/react-select'))
 
 const routes = [
 	{
@@ -63,7 +64,7 @@ const routes = [
 			},
 			{
 				path: 'react-select',
-				element: <div>React-Select page</div>
+				element: <ReactSelectPage />
 			},
 			{
 				path: 'textarea',
