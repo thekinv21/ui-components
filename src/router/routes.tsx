@@ -15,6 +15,7 @@ const SweetAlertPage = lazy(() => import('@/screens/components/sweet-alerts'))
 const ButtonPage = lazy(() => import('@/screens/components/buttons'))
 const DatePickerPage = lazy(() => import('@/screens/components/datePicker'))
 const ModalPage = lazy(() => import('@/screens/components/modals'))
+const SelectPage = lazy(() => import('@/screens/components/select'))
 
 const routes = [
 	{
@@ -55,6 +56,10 @@ const routes = [
 			{
 				path: 'input',
 				element: <div>Input page</div>
+			},
+			{
+				path: 'select',
+				element: <SelectPage />
 			},
 			{
 				path: 'react-select',

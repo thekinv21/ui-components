@@ -1,0 +1,23 @@
+.group {
+	@apply relative flex w-full items-center leading-7;
+}
+
+.select {
+	@apply h-[40px] w-full rounded-lg border px-3 text-sm leading-[30px] text-[#0d0c22] outline-none transition-all duration-500 ease-in-out hover:border-indigo-400 focus:border-indigo-400 focus:bg-white;
+
+	-moz-appearance: none; /* Firefox */
+	-webkit-appearance: none; /* Safari and Chrome */
+	appearance: none;
+}
+
+.icon {
+	@apply absolute left-4 h-4 w-4 fill-none;
+}
+
+.error_message {
+	@apply mt-3 text-xs;
+}
+
+.required {
+	@apply border border-red-500 transition-all duration-500 ease-in-out;
+}
