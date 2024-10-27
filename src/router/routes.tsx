@@ -18,6 +18,7 @@ const ModalPage = lazy(() => import('@/screens/components/modals'))
 const SelectPage = lazy(() => import('@/screens/components/select'))
 const ReactSelectPage = lazy(() => import('@/screens/components/react-select'))
 const InputsPage = lazy(() => import('@/screens/components/inputs'))
+const TextAreaPage = lazy(() => import('@/screens/components/textarea'))
 
 const routes = [
 	{
@@ -69,15 +70,11 @@ const routes = [
 			},
 			{
 				path: 'textarea',
-				element: <div>textarea page</div>
+				element: <TextAreaPage />
 			},
 			{
 				path: 'modal',
 				element: <ModalPage />
-			},
-			{
-				path: 'date-picker',
-				element: <div>Input page</div>
 			}
 		]
 	}

@@ -42,7 +42,7 @@ export function ReactSelectFormExample() {
 		>
 			<div>
 				<h1 className='py-3 text-sm font-normal uppercase text-gray-500'>
-					React DatePicker with React Hook Form
+					React Select with React Hook Form
 				</h1>
 
 				<p className='py-3 text-sm font-normal text-gray-500'>
