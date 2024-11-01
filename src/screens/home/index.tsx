@@ -1,7 +1,9 @@
 import { PaginationState } from '@tanstack/react-table'
 
 import { BreadCrumbExample3 } from '@/components/ui/breadcrumb/example-3/BreadCrumbExample3'
-import { DataTable, useDataTableColumns } from '@/components/ui/dataTable'
+
+import { DataTable } from '../../components/ui/dataTable/DataTable'
+import { useDataTableColumns } from '../../components/ui/dataTable/useDataTableColumns'
 
 import { QueryKeyEnum } from '@/constant/queryKey.constant'
 import { baseService } from '@/service/base.service'
