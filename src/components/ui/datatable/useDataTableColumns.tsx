@@ -3,7 +3,7 @@ import React from 'react'
 import { ColumnDef } from '@tanstack/react-table'
 import { FilePenLineIcon, PlayCircleIcon, Trash2Icon } from 'lucide-react'
 
-import { INews } from './dataTable.d'
+import { INews } from './dataTable.types'
 
 export function useDataTableColumns() {
 	const columns = React.useMemo<ColumnDef<INews>[]>(
