@@ -1,11 +1,21 @@
-import { Computer, Settings, Sun, SunMoon, X } from 'lucide-react'
+import { ChangeEvent } from 'react'
+
+import {
+	ArrowRightLeft,
+	ChevronsLeftRightIcon,
+	Computer,
+	Settings,
+	Sun,
+	SunMoon,
+	X
+} from 'lucide-react'
 
 import { Button } from '@/components/ui/button/button'
 
 import { cn } from '@/utils/shadcn'
 
 import styles from './CustomSetting.module.scss'
-import { useCustomSetting } from './useCustomSetting'
+import { ICustomSetting, useCustomSetting } from './useCustomSetting'
 
 export function CustomSetting() {
 	const { isOpen, setIsOpen, values, handleChange } = useCustomSetting()
@@ -52,73 +62,135 @@ export function CustomSetting() {
 								Set your custom styles and use Application
 							</p>
 						</div>
-
-						<div className={styles.section}>
-							<h5 className={styles.sectionTitle}>Color Scheme</h5>
-							<p className={styles.sectionDescription}>
-								Overall light or dark presentation.
-							</p>
-							<div className='mt-3 grid grid-cols-3 gap-2'>
-								<Button
-									variant='outline'
-									size='sm'
-									type='button'
-									className='flex items-center gap-2'
-								>
-									<Sun strokeWidth={1} size={20} />
-									Light
-								</Button>
-
-								<Button
-									variant='outline'
-									size='sm'
-									type='button'
-									className='flex items-center gap-2'
-								>
-									<SunMoon strokeWidth={1} size={20} />
-									Dark
-								</Button>
-
-								<Button
-									variant='outline'
-									size='sm'
-									type='button'
-									className='flex items-center gap-2'
-								>
-									<Computer strokeWidth={1} size={20} />
-									System
-								</Button>
-							</div>
-						</div>
-
-						<div className={styles.section}>
-							<h5 className={styles.sectionTitle}>Router Transition</h5>
-							<p className={styles.sectionDescription}>
-								Animation of main content.
-							</p>
-							<div className='mt-3'>
-								<select
-									name='animation'
-									value={values.animation}
-									onChange={handleChange}
-								>
-									<option value=''>None</option>
-									<option value='animate__fadeIn'>Fade</option>
-									<option value='animate__fadeInDown'>Fade Down</option>
-									<option value='animate__fadeInUp'>Fade Up</option>
-									<option value='animate__fadeInLeft'>Fade Left</option>
-									<option value='animate__fadeInRight'>Fade Right</option>
-									<option value='animate__slideInDown'>Slide Down</option>
-									<option value='animate__slideInLeft'>Slide Left</option>
-									<option value='animate__slideInRight'>Slide Right</option>
-									<option value='animate__slideInUp'>Slide Up</option>
-									<option value='animate__zoomIn'>Zoom In</option>
-								</select>
-							</div>
-						</div>
+						<ModeCustomize values={values} handleChange={handleChange} />
+						<SidebarCustomize values={values} handleChange={handleChange} />
+						<TransitionCustomize values={values} handleChange={handleChange} />
 					</div>
 				</nav>
 			)}
 		</section>
+	)
+}
+
+interface ICustomize {
+	values: ICustomSetting
+	handleChange: (v: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
+}
+
+// application mode customize
+
+function ModeCustomize({}: ICustomize) {
+	return (
+		<div className={styles.section}>
+			<h5 className={styles.sectionTitle}>Color Scheme</h5>
+			<p className={styles.sectionDescription}>
+				Overall light or dark presentation.
+			</p>
+			<div className='mt-3 grid grid-cols-3 gap-2'>
+				<Button
+					variant='outline'
+					size='sm'
+					type='button'
+					className='flex items-center gap-2'
+				>
+					<Sun strokeWidth={1} size={20} />
+					Light
+				</Button>
+
+				<Button
+					variant='outline'
+					size='sm'
+					type='button'
+					className='flex items-center gap-2'
+				>
+					<SunMoon strokeWidth={1} size={20} />
+					Dark
+				</Button>
+
+				<Button
+					variant='outline'
+					size='sm'
+					type='button'
+					className='flex items-center gap-2'
+				>
+					<Computer strokeWidth={1} size={20} />
+					System
+				</Button>
+			</div>
+		</div>
+	)
+}
+
+// sidebar customize
+
+function SidebarCustomize({}: ICustomize) {
+	return (
+		<div className={styles.section}>
+			<h5 className={styles.sectionTitle}>Sidebar</h5>
+			<p className={styles.sectionDescription}>
+				Overall collapsed or normal presentation.
+			</p>
+			<div className='mt-3 grid grid-cols-3 gap-2'>
+				<Button
+					variant='outline'
+					size='sm'
+					type='button'
+					className='flex items-center gap-2'
+				>
+					<ArrowRightLeft strokeWidth={1} size={20} />
+					Normal
+				</Button>
+
+				<Button
+					variant='outline'
+					size='sm'
+					type='button'
+					className='flex items-center gap-2'
+				>
+					<ChevronsLeftRightIcon strokeWidth={1} size={20} />
+					Collapsed
+				</Button>
+
+				<Button
+					variant='outline'
+					size='sm'
+					type='button'
+					className='flex items-center gap-2'
+				>
+					<Computer strokeWidth={1} size={20} />
+					System
+				</Button>
+			</div>
+		</div>
+	)
+}
+
+// router transition customize
+
+function TransitionCustomize(props: ICustomize) {
+	return (
+		<div className={styles.section}>
+			<h5 className={styles.sectionTitle}>Router Transition</h5>
+			<p className={styles.sectionDescription}>Animation of main content.</p>
+			<div className='mt-3'>
+				<select
+					name='animation'
+					value={props.values.animation}
+					onChange={props.handleChange}
+				>
+					<option value=''>None</option>
+					<option value='animate__fadeIn'>Fade</option>
+					<option value='animate__fadeInDown'>Fade Down</option>
+					<option value='animate__fadeInUp'>Fade Up</option>
+					<option value='animate__fadeInLeft'>Fade Left</option>
+					<option value='animate__fadeInRight'>Fade Right</option>
+					<option value='animate__slideInDown'>Slide Down</option>
+					<option value='animate__slideInLeft'>Slide Left</option>
+					<option value='animate__slideInRight'>Slide Right</option>
+					<option value='animate__slideInUp'>Slide Up</option>
+					<option value='animate__zoomIn'>Zoom In</option>
+				</select>
+			</div>
+		</div>
 	)
 }

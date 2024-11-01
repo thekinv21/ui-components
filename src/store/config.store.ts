@@ -3,16 +3,25 @@ import { create } from 'zustand'
 type TypeConfigStore = {
 	animation: string
 	changeAnimation: (v: string) => void
+
+	sidebar: string
+	changeSidebar: (v: string) => void
 }
 
-const getInitialAnimation = (): string => {
+type TypeCustomize = {
+	animation: string
+	sidebar: string
+}
+
+const initialValues = (): TypeCustomize => {
 	const stored = localStorage.getItem('CUSTOM')
-	return stored
-		? JSON.parse(stored).animation || 'animate__slideInUp'
-		: 'animate__slideInUp'
+	return JSON.parse(stored as unknown as string)
 }
 
 export const useConfigStore = create<TypeConfigStore>(set => ({
-	animation: getInitialAnimation(),
-	changeAnimation: v => set({ animation: v })
+	animation: initialValues()?.animation,
+	changeAnimation: v => set({ animation: v }),
+
+	sidebar: initialValues()?.sidebar,
+	changeSidebar: v => set({ sidebar: v })
 }))

@@ -1,14 +1,16 @@
 import { ChangeEvent, useEffect, useState } from 'react'
 
-interface ICustomSetting {
+export interface ICustomSetting {
 	animation: string
+	sidebar: string
 }
 
 export const useCustomSetting = () => {
 	const [isOpen, setIsOpen] = useState<boolean>(false)
 
 	const [values, setValues] = useState<ICustomSetting>({
-		animation: ''
+		animation: '',
+		sidebar: ''
 	})
 
 	useEffect(() => {
