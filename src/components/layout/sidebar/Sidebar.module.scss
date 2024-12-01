@@ -48,3 +48,9 @@
 		@apply bg-blue-50 bg-opacity-80 text-blue-900;
 	}
 }
+
+// collapsed sidebar styles
+
+.sidebar_collapsed {
+	@apply relative flex h-[calc(100vh)] w-full max-w-[4rem] flex-col overflow-y-auto overflow-x-hidden bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.13)_0,rgba(0,163,255,0)_50%,rgba(0,163,255,0)_100%)] bg-clip-border p-4 text-gray-700 shadow-xl hover:max-w-[20rem];
+}

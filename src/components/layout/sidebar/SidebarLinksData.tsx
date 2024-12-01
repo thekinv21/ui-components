@@ -23,6 +23,7 @@ import {
 } from 'lucide-react'
 
 export interface ISidebarLink {
+	heading?: string
 	label: string
 	url: string
 	icon: JSX.Element
